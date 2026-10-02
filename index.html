@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="description" content="112金工／鐵工教室空間設備需求與設計備忘錄，供校方與建築師團隊確認。">
+  <title>03｜112金工／鐵工教室空間設備需求</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#1f1c18;--ink-2:#4a443c;--muted:#766c60;--faint:#9a8e7e;
+      --paper:#fdfcf7;--paper-2:#f6f0e4;--paper-3:#ece2cf;
+      --rule:#ddd0bd;--rule-2:#c4b19a;--acc:#6a8a5a;--acc-deep:#49633c;
+      --ok:#5a7a4a;--ok-bg:#e9f0e1;--wait:#9a5e36;--wait-bg:#f8e6da;
+      --serif:"Noto Serif TC","PingFang TC",serif;
+      --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+      --num:"EB Garamond","Noto Serif TC",serif;--side:270px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.85 var(--sans);text-rendering:optimizeLegibility}
+    a{color:inherit} button{font:inherit;color:inherit}
+    :focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
+    .shell{display:grid;grid-template-columns:var(--side) minmax(0,1fr);min-height:100vh}
+    .side{position:sticky;top:0;height:100vh;overflow:auto;background:var(--paper-2);border-right:1px solid var(--rule);padding:42px 0 24px;display:flex;flex-direction:column}
+    .brand{padding:0 22px 20px;border-bottom:1px solid var(--rule)}
+    .brand-kicker{font-size:12px;letter-spacing:.15em;color:var(--muted)}
+    .brand-title{font:700 19px/1.5 var(--serif);margin-top:5px}
+    .brand-sub{font:600 14px/1.5 var(--serif);color:var(--acc-deep);letter-spacing:.08em}
+    .nav{padding:16px 0}
+    .nav a{display:flex;gap:10px;align-items:baseline;padding:7px 22px 7px 20px;border-left:3px solid transparent;text-decoration:none;color:var(--ink-2);font-size:13.5px;line-height:1.55}
+    .nav a:hover,.nav a.on{background:var(--paper);border-left-color:var(--acc);color:var(--ink)}
+    .nav a.on{font-weight:700}
+    .nav-num{font:600 15px var(--num);color:var(--acc);min-width:2.3em}
+    .side-foot{margin-top:auto;padding:18px 22px 0;color:var(--faint);font-size:12px}
+    .print-btn{width:100%;border:1px solid var(--rule-2);background:var(--paper);border-radius:8px;padding:8px 12px;cursor:pointer;color:var(--ink-2)}
+    .print-btn:hover{border-color:var(--acc);color:var(--acc-deep)}
+    .main{min-width:0}
+    .topbar{position:sticky;top:0;z-index:20;height:54px;display:flex;align-items:center;gap:12px;padding:0 28px;background:rgba(253,252,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+    .crumb{flex:1;color:var(--muted);font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .crumb b{color:var(--ink)}
+    .top-action{border:1px solid var(--rule);background:white;border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px}
+    .page{max-width:930px;margin:auto;padding:40px 44px 84px}
+    .ch-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:26px;align-items:start;padding-bottom:26px;border-bottom:2px solid var(--ink);margin-bottom:22px}
+    .ch-num{font:500 112px/.82 var(--num);color:var(--acc);letter-spacing:-.02em;padding-top:6px}
+    .eyebrow{margin:0;color:var(--muted);font-size:13px;letter-spacing:.18em}
+    h1{font:700 34px/1.35 var(--serif);margin:4px 0 0}
+    .status{display:flex;flex-wrap:wrap;gap:7px 12px;align-items:center;margin-top:14px;color:var(--muted);font-size:13px}
+    .chip{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:500;line-height:1.8;white-space:nowrap}
+    .chip.ok{color:var(--ok);background:var(--ok-bg)}
+    .chip.note{color:var(--wait);background:var(--wait-bg)}
+    .meta{border-left:3px solid var(--acc);background:var(--paper-2);padding:11px 16px;border-radius:0 8px 8px 0;margin-bottom:18px;color:var(--ink-2);font-size:14px}
+    .meta p{margin:2px 0}.meta b{color:var(--ink)}
+    .jumps{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 30px}
+    .jumps-label{font-size:12px;letter-spacing:.12em;color:var(--faint)}
+    .jump{text-decoration:none;border:1px solid var(--rule);border-radius:999px;padding:4px 12px;background:#fff;font-size:13px;color:var(--ink-2)}
+    .jump:hover{border-color:var(--acc);color:var(--acc-deep)}
+    .h1{font:700 25px/1.45 var(--serif);margin:58px 0 18px;padding-top:18px;border-top:1px solid var(--rule);display:flex;gap:14px;align-items:baseline;scroll-margin-top:72px}
+    .h2{font:600 20px/1.5 var(--serif);margin:38px 0 12px;display:flex;gap:12px;align-items:baseline;scroll-margin-top:72px}
+    .secno{font-family:var(--num);font-weight:600;color:var(--acc)}
+    .lead{font-weight:700}
+    p{margin:0 0 14px}
+    .callout{margin:20px 0;padding:15px 20px;border-left:3px solid var(--acc);background:var(--paper-2);border-radius:0 8px 8px 0}
+    .flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:10px;margin:20px 0 24px}
+    .flow-card{min-height:86px;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:12px;border:1px solid var(--rule);border-radius:10px;background:#fff}
+    .flow-card b{font-family:var(--serif);color:var(--acc-deep)}
+    .flow-card span{font-size:12.5px;color:var(--muted)}
+    .arrow{color:var(--acc);font-size:22px}
+    .tbl-wrap{margin:10px 0 30px;overflow-x:auto;border:1px solid var(--rule);border-radius:10px;background:#fff}
+    .tbl-bar{display:flex;align-items:baseline;gap:10px;padding:10px 16px;border-bottom:1px solid var(--rule);background:var(--paper-2)}
+    .tbl-title{font:700 17px var(--serif)}
+    .tbl-count{font-size:12.5px;color:var(--muted);border:1px solid var(--rule-2);border-radius:999px;padding:0 9px}
+    table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.68}
+    th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
+    tbody tr:last-child td{border-bottom:0}
+    th{font:600 13.5px var(--serif);color:var(--ink-2);background:var(--paper);white-space:nowrap;letter-spacing:.03em}
+    .c-no{width:4em;text-align:center}.c-item{width:12em}.c-qty{width:12em}
+    td.c-no{font:600 16px var(--num);color:var(--acc)} td.c-item{font-weight:700} td.c-qty{color:var(--ink-2)}
+    tbody tr:hover td{background:rgba(246,240,228,.55)}
+    tr.existing td{background:#f1f6ec}
+    .legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin:-12px 0 22px;color:var(--muted);font-size:12.5px}
+    .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--acc)}
+    .dot.existing{background:#9bb78a}.dot.pending{background:#d19b72}
+    .evidence{margin:26px 0 38px;padding:18px;border:1px solid var(--rule);border-radius:12px;background:var(--paper-2)}
+    .evidence-head{display:flex;gap:12px;align-items:baseline;margin-bottom:14px}
+    .evidence-code{font:600 22px var(--num);color:var(--acc)}
+    .evidence-title{font:700 18px var(--serif)}
+    .evidence-note{margin:-6px 0 14px;color:var(--ink-2);font-size:13.5px}
+    .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .gallery.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .gallery figure,.plan-figure{margin:0;background:#fff;border:1px solid var(--rule);border-radius:9px;overflow:hidden}
+    .gallery a{display:block;background:#e8e1d6}
+    .gallery img{display:block;width:100%;height:220px;object-fit:cover}
+    .gallery .contain img{object-fit:contain;background:#f7f3eb}
+    .gallery figcaption,.plan-figure figcaption{padding:9px 11px;color:var(--ink-2);font-size:12.5px;line-height:1.55}
+    .plan-figure{margin:18px 0 22px}
+    .plan-figure img{display:block;width:100%;max-height:680px;object-fit:contain;background:#fff}
+    .zone-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+    .zone-card{padding:16px 18px;border:1px solid var(--rule);border-radius:10px;background:#fff}
+    .zone-card b{display:block;color:var(--acc-deep);font-family:var(--serif);margin-bottom:5px}
+    .zone-card p{margin:0;font-size:13.5px;color:var(--ink-2)}
+    ul.bul{padding-left:1.35em;margin:0 0 18px} ul.bul li{margin:5px 0}
+    ol.steps{list-style:none;counter-reset:step;padding:0;margin:8px 0 22px;display:grid;gap:10px}
+    ol.steps li{counter-increment:step;position:relative;padding:12px 16px 12px 58px;background:#fff;border:1px solid var(--rule);border-radius:10px}
+    ol.steps li::before{content:counter(step);position:absolute;left:16px;top:11px;width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;font:600 16px var(--num);display:grid;place-items:center}
+    .source{margin-top:46px;padding-top:18px;border-top:1px solid var(--rule);font-size:13px;color:var(--muted)}
+    .source a{color:#2f5a7e;text-underline-offset:3px}
+    .foot{margin-top:52px;padding-top:18px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;gap:20px;color:var(--faint);font-size:12px}
+    .mobilebar{display:none}
+    @media(max-width:900px){
+      .shell{display:block}.side{position:fixed;inset:0 auto 0 0;width:min(86vw,310px);z-index:100;transform:translateX(-105%);transition:.2s;box-shadow:0 0 40px rgba(0,0,0,.18)}
+      body.menu-open .side{transform:none}.topbar{display:none}.page{padding:62px 20px 100px}
+      .mobilebar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;gap:10px;align-items:center;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:rgba(246,240,228,.96);border-top:1px solid var(--rule)}
+      .mobilebar button{border:1px solid var(--rule);background:var(--paper);border-radius:8px;padding:8px 12px}.mobilebar span{flex:1;font-size:13px;color:var(--ink-2)}
+    }
+    @media(max-width:640px){
+      body{font-size:15.5px}.ch-head{grid-template-columns:1fr;gap:7px}.ch-num{font-size:64px}.ch-head h1{font-size:27px}
+      .h1{font-size:21px;margin-top:46px}.h2{font-size:18px}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg);text-align:center}
+      .tbl-wrap{border:0;background:none;overflow:visible}.tbl-bar{border:1px solid var(--rule);border-radius:10px;margin-bottom:10px}
+      .tbl-wrap table,.tbl-wrap tbody,.tbl-wrap tr,.tbl-wrap td{display:block;width:auto}.tbl-wrap thead{display:none}
+      .tbl-wrap tr{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;margin-bottom:10px}
+      .tbl-wrap tr.existing{background:#f1f6ec}.tbl-wrap td,.tbl-wrap tr:hover td,.tbl-wrap tr.existing td{border:0;padding:2px 0;background:none}
+      .tbl-wrap td.c-no{display:inline;font-size:17px;margin-right:8px}.tbl-wrap td.c-item{display:inline;font-size:15.5px}
+      .tbl-wrap td.c-qty,.tbl-wrap td.c-desc{margin-top:5px}
+      .tbl-wrap td.c-qty::before,.tbl-wrap td.c-desc::before{content:attr(data-label);display:block;font-size:11.5px;letter-spacing:.08em;color:var(--faint)}
+      .gallery,.gallery.three,.zone-grid{grid-template-columns:1fr}.gallery img{height:auto;max-height:520px;object-fit:contain;background:#f7f3eb}
+      .foot{display:block}.foot span{display:block;margin:4px 0}
+    }
+    @media print{
+      @page{size:A4;margin:14mm 14mm 16mm}
+      body{background:#fff;font-size:10pt}.side,.topbar,.jumps,.mobilebar,.print-btn{display:none!important}
+      .shell{display:block}.page{max-width:none;padding:0}.ch-head{break-after:avoid}
+      .tbl-wrap{overflow:visible}.tbl-wrap tr,.callout,.flow-card,.gallery figure,.plan-figure,.zone-card{break-inside:avoid}.h1,.h2{break-after:avoid}
+      .gallery img{height:48mm}.plan-figure img{max-height:150mm}.evidence{background:#fff}
+      a{color:inherit;text-decoration:none}.foot{margin-top:24px}
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="side" aria-label="本頁導覽">
+      <div class="brand">
+        <div class="brand-kicker">高中新校舍</div>
+        <div class="brand-title">空間設備需求</div>
+        <div class="brand-sub">03｜112金工／鐵工教室</div>
+      </div>
+      <nav class="nav">
+        <a href="#top" class="on"><span class="nav-num">03</span><span>頁首與定位</span></a>
+        <a href="#equipment-summary"><span class="nav-num">02</span><span>分區設備表</span></a>
+        <a href="#posters"><span class="nav-num">03</span><span>分區概念海報</span></a>
+        <a href="#req-metal"><span class="nav-num">A</span><span>金工區圖文說明</span></a>
+        <a href="#req-forge"><span class="nav-num">B</span><span>鐵工區圖文說明</span></a>
+        <a href="#flow"><span class="nav-num">3.1</span><span>核心三角動線</span></a>
+        <a href="#layout"><span class="nav-num">3.2</span><span>配置關係</span></a>
+        <a href="#mep"><span class="nav-num">3.3</span><span>機電與安全介面</span></a>
+        <a href="#boundary"><span class="nav-num">3.4</span><span>採購界線</span></a>
+        <a href="#inputs"><span class="nav-num">3.5</span><span>待取得資料</span></a>
+      </nav>
+      <div class="side-foot">
+        <button class="print-btn" onclick="window.print()">🖨 列印／另存PDF</button>
+        <div>工作版 v1.5｜2026-10-02</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div class="crumb">高中新校舍空間設備需求　›　<b>112金工／鐵工教室</b></div>
+        <button class="top-action" onclick="window.print()">列印／PDF</button>
+      </div>
+
+      <article class="page" id="top">
+        <header class="ch-head">
+          <div class="ch-num" aria-hidden="true">03</div>
+          <div>
+            <p class="eyebrow">第3章｜獨立工作頁</p>
+            <h1>112金工／鐵工教室</h1>
+            <div class="status">
+              <span class="chip ok">本階段需求已整理</span>
+              <span>金工區13項 · 鐵工區5項</span>
+              <span class="chip note">設備現況與尺寸待複核</span>
+            </div>
+          </div>
+        </header>
+
+        <section class="meta">
+          <p><b>文件用途：</b>供校方與建築師團隊確認空間使用模式、設備位置關係及設計介面。</p>
+          <p><b>製作者：</b>邱奕叡　<b>版本日期：</b>2026-10-02　<b>文件階段：</b>需求工作版，非採購或施工定案。</p>
+        </section>
+
+        <nav class="jumps" aria-label="本頁段落">
+          <span class="jumps-label">本頁段落</span>
+          <a class="jump" href="#equipment-summary">分區設備表</a>
+          <a class="jump" href="#posters">分區概念海報</a>
+          <a class="jump" href="#req-metal">金工區</a>
+          <a class="jump" href="#req-forge">鐵工區</a>
+          <a class="jump" href="#flow">三角動線</a>
+          <a class="jump" href="#mep">設計介面</a>
+          <a class="jump" href="#inputs">待取得資料</a>
+        </nav>
+
+        <section>
+          <h2 class="h1"><span class="secno">01</span><span>空間定位</span></h2>
+          <p>112由一間室內教室與相鄰雨棚半戶外區共同構成。室內為金工主要使用空間，支援個人精細加工、拋光、琺瑯／琉璃燒結、輾片、小型接合、鍛敲、退火、酸洗與作品管理；半戶外區承接鐵工鍛造、鐵砧捶打、火鉗操作及砂輪研磨。</p>
+          <p>鐵工高熱、火花、煙氣、噪音及振動作業安排於半戶外雨棚下；工具、材料及可移動設備的收納以室內鄰近出入口為原則。教師應能掌握室內金工與半戶外鐵工兩區，且高溫工件搬運不得穿越主要學生動線。</p>
+          <div class="callout"><span class="lead">人數基準：</span>歷史紀錄曾以金工15～18名學生加1名教師、鐵工選修約8名學生作為參考；目前實際同時使用人數及兩區是否同時上課仍待確認。</div>
+        </section>
+
+        <section id="equipment-summary">
+          <h2 class="h1"><span class="secno">02</span><span>分區設備表</span></h2>
+          <p>依工作總冊四欄格式彙整本階段需求。表列數量為需求盤點基準；標示「待確認」者須經既有設備、實際授課人數、工具數量及設計條件確認後，才可轉為採購數量或施工規格。</p>
+          <div class="tbl-wrap">
+            <div class="tbl-bar"><span class="tbl-title">112金工／鐵工教室</span><span class="tbl-count">18項</span></div>
+            <table>
+              <thead><tr><th class="c-no">序號</th><th class="c-item">品項或工作</th><th class="c-qty">數量或規模</th><th class="c-desc">需求與必要建議</th></tr></thead>
+              <tbody>
+                <tr><td class="c-no">A1</td><td class="c-item">個人作業桌、工作椅、銼橋及部分吊鑽</td><td class="c-qty" data-label="數量或規模">席數待確認；歷史基準18席</td><td class="c-desc" data-label="需求與必要建議">工作席整合銼橋、穩固桌緣、集屑承接、腿部空間、可調座椅與精密照明；部分席位配置吊鑽及110V供電。</td></tr>
+                <tr class="existing"><td class="c-no">A2</td><td class="c-item">中型琺瑯／琉璃燒結爐工作區</td><td class="c-qty" data-label="數量或規模">依既有設備</td><td class="c-desc" data-label="需求與必要建議">設備已有，不採購本體；納入搬遷、操作面、安全距離、散熱、電力及安裝條件。</td></tr>
+                <tr class="existing"><td class="c-no">A3</td><td class="c-item">落地式輾片機區</td><td class="c-qty" data-label="數量或規模">依既有設備</td><td class="c-desc" data-label="需求與必要建議">設備已有，不採購本體；檢核穩固地坪、進出料方向、安全範圍及搬遷固定條件。</td></tr>
+                <tr><td class="c-no">A4</td><td class="c-item">移動式銅工接合工作台</td><td class="c-qty" data-label="數量或規模">1組；現況待盤點</td><td class="c-desc" data-label="需求與必要建議">整合局部排煙、照明、110V插座、耐火工作面、可鎖收納及可固定腳輪。</td></tr>
+                <tr><td class="c-no">A5</td><td class="c-item">捶打鐵砧鍛敲區</td><td class="c-qty" data-label="數量或規模">工作位數待確認</td><td class="c-desc" data-label="需求與必要建議">配置木墩鐵砧及厚木桌邊鐵砧插槽；設厚橡膠減振墊，檢討噪音、安全距離與地坪承載。</td></tr>
+                <tr><td class="c-no">A6</td><td class="c-item">退火／熱處理爐火區</td><td class="c-qty" data-label="數量或規模">簡易爐火2～3口</td><td class="c-desc" data-label="需求與必要建議">配置耐火操作面、噴燈架、局部排煙、工作照明及關閉介面；能源與氣瓶系統另行確認。</td></tr>
+                <tr><td class="c-no">A7</td><td class="c-item">酸洗冷卻區</td><td class="c-qty" data-label="數量或規模">1區</td><td class="c-desc" data-label="需求與必要建議">依序配置冷卻／淬火容器、酸洗槽及清水沖洗水槽，整合耐蝕操作面與化學材料、廢液管理。</td></tr>
+                <tr><td class="c-no">A8</td><td class="c-item">鍛頭／砧座收納櫃</td><td class="c-qty" data-label="數量或規模">數量、承重待確認</td><td class="c-desc" data-label="需求與必要建議">依重量、尺寸及使用頻率分類，採低位重物收納及防傾倒構造。</td></tr>
+                <tr><td class="c-no">A9</td><td class="c-item">各類鎚具收納區</td><td class="c-qty" data-label="數量或規模">依牆面規劃</td><td class="c-desc" data-label="需求與必要建議">設固定且可辨識的安放位置，便於清點、取用及歸位；掛架承重與防脫落構造待確認。</td></tr>
+                <tr><td class="c-no">A10</td><td class="c-item">金屬材料收納設施</td><td class="c-qty" data-label="數量或規模">依材料規格與存量配置</td><td class="c-desc" data-label="需求與必要建議">分別收納銅片、銅線、鐵材、鋼材及長條材料；片材、線材與長料採不同形式。</td></tr>
+                <tr><td class="c-no">A11</td><td class="c-item">學生半成品及作品收納</td><td class="c-qty" data-label="數量或規模">容量及單格尺度待確認</td><td class="c-desc" data-label="需求與必要建議">支援跨週製作，依班級、學生或作品類型分格管理。</td></tr>
+                <tr><td class="c-no">A12</td><td class="c-item">安全防護設備櫃</td><td class="c-qty" data-label="數量或規模">容量待確認</td><td class="c-desc" data-label="需求與必要建議">收納護目鏡、焊接面罩、耳罩等防護裝備，兼顧清潔、乾燥與取用管理。</td></tr>
+                <tr><td class="c-no">A13</td><td class="c-item">可上鎖工具／材料櫃</td><td class="c-qty" data-label="數量或規模">種類及數量待確認</td><td class="c-desc" data-label="需求與必要建議">工具、易燃物及部分化學材料依性質分櫃收納，不以單一一般櫃混放。</td></tr>
+                <tr><td class="c-no">B1</td><td class="c-item">鐵工鍛造爐系統</td><td class="c-qty" data-label="數量或規模">焦炭爐或瓦斯爐3～4口</td><td class="c-desc" data-label="需求與必要建議">設於雨棚半戶外區，整合工作臺、強制進氣、統一抽風罩及耐熱安全設施；燃料、排煙補氣與消防條件待確認。</td></tr>
+                <tr><td class="c-no">B2</td><td class="c-item">鐵砧捶打工作區</td><td class="c-qty" data-label="數量或規模">5～6席</td><td class="c-desc" data-label="需求與必要建議">檢討鐵砧固定、個別工作半徑、相鄰席安全距離、減振、噪音及教師監看視線。</td></tr>
+                <tr><td class="c-no">B3</td><td class="c-item">鐵工工具桌／臨時操作面</td><td class="c-qty" data-label="數量或規模">形式與尺寸待工具盤點</td><td class="c-desc" data-label="需求與必要建議">供鍛打中臨時置放工件、工具及量測；可依工作臺面與工具品項決定整合或獨立設置。</td></tr>
+                <tr><td class="c-no">B4</td><td class="c-item">多種火鉗明確安放區</td><td class="c-qty" data-label="數量或規模">1區；容量待確認</td><td class="c-desc" data-label="需求與必要建議">可採爐區掛放、牆面掛架、獨立落地架或集中收納；須固定、可辨識、耐熱，且不侵入操作與通行範圍。</td></tr>
+                <tr><td class="c-no">B5</td><td class="c-item">落地式砂輪機</td><td class="c-qty" data-label="數量或規模">3～4組</td><td class="c-desc" data-label="需求與必要建議">配置防護罩、火花方向控制、集塵／排風、操作間距及穩固基座；既有／新購數量與電力需求待盤點。</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="legend"><span><i class="dot existing"></i>既有設備，不採購設備本體</span><span><i class="dot pending"></i>數量、現況或規格仍待盤點</span></div>
+        </section>
+
+        <section id="posters">
+          <h2 class="h1"><span class="secno">03</span><span>分區概念海報</span></h2>
+          <p>兩張海報以課程進行中的模擬情境呈現室內金工教室與雨棚半戶外鐵工區，重點為空間使用、人物活動、設備關係及安全動線；不代表施工配置或設備數量已定案。</p>
+          <div class="gallery">
+            <figure class="contain"><a href="海報01_室內金工教室_空間情境示意_v2.png" target="_blank"><img src="海報01_室內金工教室_空間情境示意_v2.png" loading="lazy" alt="室內金工教室課程使用空間情境示意海報"></a><figcaption>海報01｜室內金工教室：一般工作服、銼橋個人作業、專用工作點、熱作業短動線及分類收納。</figcaption></figure>
+            <figure class="contain"><a href="海報02_半戶外鐵工區_空間情境示意_v2.png" target="_blank"><img src="海報02_半戶外鐵工區_空間情境示意_v2.png" loading="lazy" alt="雨棚半戶外鐵工區鍛造課程空間情境示意海報"></a><figcaption>海報02｜雨棚半戶外鐵工區：工作服、眼鏡型安全護目鏡、耳罩、鐵錘鍛打及室內收納連接。</figcaption></figure>
+          </div>
+        </section>
+
+        <section id="req-metal">
+          <h2 class="h1"><span class="secno">A</span><span>金工區圖文說明</span></h2>
+
+          <div class="evidence">
+            <div class="evidence-head"><span class="evidence-code">A1</span><span class="evidence-title">個人作業席與銼橋</span></div>
+            <p class="evidence-note">圖像重點：多人教學工作面、桌緣操作介面，以及銼橋在鋸切、銼削、鑽孔與打磨時的核心支撐作用。</p>
+            <div class="gallery">
+              <figure><a href="assets/a1-classroom.webp" target="_blank"><img src="assets/a1-classroom.webp" loading="lazy" alt="多人在金工工作桌進行個人精細作業"></a><figcaption>多人教學情境：工作席環繞共用工作面，需兼顧個人操作範圍、工具暫放與教師巡視。</figcaption></figure>
+              <figure><a href="assets/a1-bench-vise.webp" target="_blank"><img src="assets/a1-bench-vise.webp" loading="lazy" alt="金工工作桌前緣虎鉗與成形工具"></a><figcaption>桌緣操作介面：穩固桌體可整合虎鉗或成形工具；銼橋則須設於操作者身體中線附近。</figcaption></figure>
+              <figure><a href="assets/a1-workshop-layout.webp" target="_blank"><img src="assets/a1-workshop-layout.webp" loading="lazy" alt="設有連續懸吊照明與多席工作桌的金工教室"></a><figcaption>工作環境參考：中央工作桌、桌邊操作點與連續懸吊照明共同形成精細作業區。</figcaption></figure>
+              <figure class="contain"><a href="assets/a1-bench-pin-reference.webp" target="_blank"><img src="assets/a1-bench-pin-reference.webp" loading="lazy" alt="珠寶金工工作檯與銼橋參考圖"></a><figcaption>銼橋參考：完整金工工作檯可整合可替換木質銼橋、抽屜及集屑承接面。圖源：Metalsmith Society。</figcaption></figure>
+            </div>
+          </div>
+
+          <div class="evidence">
+            <div class="evidence-head"><span class="evidence-code">A2–A3</span><span class="evidence-title">燒結與輾片設備</span></div>
+            <p class="evidence-note">兩項皆為既有設備；照片用於確認搬遷後的操作面、散熱、進出料方向與安全淨空，不代表新購型號。</p>
+            <div class="gallery three">
+              <figure class="contain"><a href="assets/a2-kiln.webp" target="_blank"><img src="assets/a2-kiln.webp" loading="lazy" alt="中型琺瑯琉璃燒結爐操作"></a><figcaption>A2｜開爐、取放與散熱皆需保留正面操作空間及耐熱介面。</figcaption></figure>
+              <figure class="contain"><a href="assets/a3-rolling-mill-existing.webp" target="_blank"><img src="assets/a3-rolling-mill-existing.webp" loading="lazy" alt="既有落地式電動輾片機"></a><figcaption>A3｜既有落地式電動輾片機；須核對地坪、供電、進出料方向及搬遷固定。</figcaption></figure>
+              <figure class="contain"><a href="assets/a3-rolling-mill-manual.webp" target="_blank"><img src="assets/a3-rolling-mill-manual.webp" loading="lazy" alt="手動輾片機構造參考"></a><figcaption>A3｜手動輾片機參考；顯示調整齒輪、滾輪及手柄所需的側向操作空間。</figcaption></figure>
+            </div>
+          </div>
+
+          <div class="evidence">
+            <div class="evidence-head"><span class="evidence-code">A5</span><span class="evidence-title">金工鍛敲與成形</span></div>
+            <p class="evidence-note">不同工件需要木墩、桌邊砧座或虎鉗固定的可替換成形工具；配置須處理操作高度、敲擊半徑、減振及工具就近取用。</p>
+            <div class="gallery">
+              <figure><a href="assets/a5-stump-hammering.webp" target="_blank"><img src="assets/a5-stump-hammering.webp" loading="lazy" alt="操作者在木墩成形砧上鍛敲銅器"></a><figcaption>木墩成形砧：提供獨立敲擊位置，需核對坐姿高度、揮鎚範圍及減振。</figcaption></figure>
+              <figure><a href="assets/a5-pair-hammering.webp" target="_blank"><img src="assets/a5-pair-hammering.webp" loading="lazy" alt="兩名學生分別進行銅器鍛敲"></a><figcaption>多人操作：工作席之間須避免揮鎚範圍交疊，並保留教師巡視通道。</figcaption></figure>
+              <figure><a href="assets/a5-vise-stake.webp" target="_blank"><img src="assets/a5-vise-stake.webp" loading="lazy" alt="虎鉗固定的金工成形砧座"></a><figcaption>可替換砧座：以重型虎鉗固定，工作桌須具足夠剛性與桌緣夾持條件。</figcaption></figure>
+              <figure><a href="assets/a5-copper-results.webp" target="_blank"><img src="assets/a5-copper-results.webp" loading="lazy" alt="不同形態的銅器鍛敲完成品"></a><figcaption>成形結果：碗、杯及曲面器物對應不同曲率的鍛頭、砧座與操作方式。</figcaption></figure>
+            </div>
+          </div>
+        </section>
+
+        <section id="req-forge">
+          <h2 class="h1"><span class="secno">B</span><span>鐵工區圖文說明</span></h2>
+
+          <div class="evidence">
+            <div class="evidence-head"><span class="evidence-code">B1</span><span class="evidence-title">半戶外鍛造爐系統</span></div>
+            <p class="evidence-note">圖像重點：多爐口工作臺、大型統一抽風罩、強制進氣與維修介面；照片為環境與系統構成參考，實際爐型仍待定。</p>
+            <div class="gallery three">
+              <figure><a href="assets/b1-forge-overview.webp" target="_blank"><img src="assets/b1-forge-overview.webp" loading="lazy" alt="多爐口焦炭鍛造臺與大型抽風罩"></a><figcaption>正面關係：多爐口、抽風罩、火鉗暫放與鄰近鐵砧形成連續鍛造工作站。</figcaption></figure>
+              <figure><a href="assets/b1-forge-side.webp" target="_blank"><img src="assets/b1-forge-side.webp" loading="lazy" alt="焦炭鍛造爐側面與灰渣承接"></a><figcaption>側面介面：爐臺下方須保留進氣、清灰、維修及灰渣承接空間。</figcaption></figure>
+              <figure><a href="assets/b1-air-system.webp" target="_blank"><img src="assets/b1-air-system.webp" loading="lazy" alt="鍛造爐下方強制進氣與壓力調節管線"></a><figcaption>機電細部：強制進氣、管線、閥件與壓力調節須可檢修並避免暴露於主要動線。</figcaption></figure>
+            </div>
+          </div>
+
+          <div class="evidence">
+            <div class="evidence-head"><span class="evidence-code">B2</span><span class="evidence-title">鐵砧捶打工作區</span></div>
+            <p class="evidence-note">鐵砧採獨立木墩固定並分散設席；爐口至鐵砧的高溫工件搬運路徑須短、直接，且不得穿越其他工作席。</p>
+            <div class="gallery">
+              <figure><a href="assets/b2-anvil-zone.webp" target="_blank"><img src="assets/b2-anvil-zone.webp" loading="lazy" alt="多席木墩鐵砧分散配置的鐵工空間"></a><figcaption>多席配置：每席須保留揮鎚半徑、站位與安全間隔，木墩同時提供穩固及減振基礎。</figcaption></figure>
+              <figure><a href="assets/b2-forge-anvil-flow.webp" target="_blank"><img src="assets/b2-forge-anvil-flow.webp" loading="lazy" alt="鍛造爐與木墩鐵砧的相對配置"></a><figcaption>工作動線：鍛造爐、鐵砧與鎚具安放區形成可直接往返的鍛打工作帶。</figcaption></figure>
+            </div>
+          </div>
+
+          <div class="evidence">
+            <div class="evidence-head"><span class="evidence-code">B4–B5</span><span class="evidence-title">火鉗安放與砂輪研磨</span></div>
+            <p class="evidence-note">火鉗照片僅示範一種就近掛放方法，不限定必須設於爐罩；正式配置可依牆面、獨立架或集中收納調整。</p>
+            <div class="gallery">
+              <figure><a href="assets/b1-forge-side.webp" target="_blank"><img src="assets/b1-forge-side.webp" loading="lazy" alt="不同長度與鉗口的火鉗就近掛放"></a><figcaption>B4｜依用途與長度分類、位置固定且可快速辨識；掛架須耐熱、防滑落並避開主要通道。</figcaption></figure>
+              <figure><a href="assets/b5-pedestal-grinder.webp" target="_blank"><img src="assets/b5-pedestal-grinder.webp" loading="lazy" alt="設有防護罩與工件托架的落地式砂輪機"></a><figcaption>B5｜落地式雙輪砂輪機須整合輪罩、透明擋板、工件托架、急停、照明及火花粉塵控制。</figcaption></figure>
+            </div>
+          </div>
+        </section>
+
+        <section id="flow">
+          <h2 class="h1"><span class="secno">3.1</span><span>金工核心三角動線</span></h2>
+          <div class="flow" aria-label="金工核心三角動線">
+            <div class="flow-card"><b>A5 鍛敲區</b><span>鐵砧、木墩、減振</span></div><div class="arrow">↔</div>
+            <div class="flow-card"><b>A6 退火／熱處理</b><span>簡易爐火2～3口、抽風</span></div><div class="arrow">↔</div>
+            <div class="flow-card"><b>A7 酸洗冷卻</b><span>水槽、耐蝕面、廢液管理</span></div>
+          </div>
+          <p>三區應縮短高溫工件在加熱、鍛敲、再加熱、酸洗及冷卻之間的搬運距離，避免穿越個人精細作業區及主要通道。配置時同步檢查爐具熱源、抽風、水槽、耐熱／耐蝕操作面、敲擊安全範圍及教師視線。</p>
+          <p class="callout"><span class="lead">設計判讀：</span>三角關係是工作流程要求，不代表三區必須形成等邊或固定尺寸；應依設備外形與完工條件進行放樣。</p>
+        </section>
+
+        <section id="layout">
+          <h2 class="h1"><span class="secno">3.2</span><span>室內金工與半戶外鐵工</span></h2>
+          <figure class="plan-figure">
+            <a href="assets/plan-112.webp" target="_blank"><img src="assets/plan-112.webp" loading="lazy" alt="112金工教室與相鄰半戶外區平面圖"></a>
+            <figcaption>112平面圖判讀：室內教室為金工主要使用空間；鐵工鍛造、捶打及研磨配置於相鄰雨棚半戶外區。圖面尺寸與完工條件仍須由設計團隊複核。</figcaption>
+          </figure>
+          <div class="zone-grid">
+            <div class="zone-card"><b>A｜室內金工主要空間</b><p>個人精細作業、燒結、輾片、小型接合、金工鍛敲、退火、酸洗及各類工具材料收納。</p></div>
+            <div class="zone-card"><b>B｜雨棚半戶外鐵工區</b><p>鍛造爐、鐵砧捶打、工具暫放、火鉗安放與砂輪研磨；整合防雨、排煙、照明、供電與耐用地坪。</p></div>
+          </div>
+          <div class="callout"><span class="lead">室內外銜接：</span>鐵工工具、材料及可移動設備以室內鄰近出入口收納；通道與門檻須適合推車通行。火鉗等操作中高溫工具則在半戶外工作區設置明確安放位置。</div>
+          <h3 class="h2"><span class="secno">A</span><span>室內金工區</span></h3>
+          <p>個人作業區是日常教學主要工作面，部分席位配置吊鑽進行拋光。燒結爐及輾片機為既有設備，不編列設備本體，但需把搬遷、定位、電力、散熱及操作淨空納入新校舍設計。</p>
+          <p>銅工接合工作台採移動式，以局部排煙、耐火面及可鎖收納形成可管理的小型接合工作站。A5鍛敲、A6爐火退火及A7酸洗冷卻形成短距離三角動線。A8至A13收納形式待實際工具、重量與數量盤點後設定。</p>
+          <h3 class="h2"><span class="secno">B</span><span>半戶外鐵工區</span></h3>
+          <p>鍛造爐、鐵砧捶打席、火鉗架及工具桌形成連續鍛造工作帶。高溫工件從爐口移至鐵砧時，不應跨越一般通道或其他學生工作席。3～4口爐與5～6席鐵砧的相對位置，須以實際爐體、工作臺、抽風罩及操作半徑放樣。</p>
+          <p>火鉗可採爐區就近掛放、牆面掛架、獨立落地架或集中收納；重點為位置固定且不侵入操作動線。落地式砂輪機集中於可控制火花方向及粉塵的位置，避免朝向出入口、可燃物及相鄰工作席。半戶外區同步檢討防雨、風向、夜間照明及設備防護。</p>
+        </section>
+
+        <section id="mep">
+          <h2 class="h1"><span class="secno">3.3</span><span>機電、環境與安全介面</span></h2>
+          <ul class="bul">
+            <li><span class="lead">電力：</span>依燒結爐、金工噴燈附屬設備、吊鑽、銅工接合工作台、鍛造爐強制進氣及砂輪機銘牌，核對110V、220V、迴路容量與緊急斷電方式。</li>
+            <li><span class="lead">排煙與補氣：</span>銅工接合、爐火退火、酸洗、半戶外鍛造爐及砂輪作業分別確認捕集方式；鍛造爐統一抽風罩與強制進氣共同設計。</li>
+            <li><span class="lead">給排水：</span>A7依序配置清水冷卻／淬火、酸洗及清水沖洗介面；槽體、檯面、管材及排水處理依實際藥劑確認。</li>
+            <li><span class="lead">熱與火花：</span>爐火、銅工接合及砂輪區配置耐熱或耐火表面，控制可燃物距離與火花方向。</li>
+            <li><span class="lead">噪音與振動：</span>金工及鐵工鍛敲區採減振構造，核對樓板、牆體及相鄰空間的聲音傳遞。</li>
+            <li><span class="lead">收納與管理：</span>工具、防護具、一般材料、易燃物及化學材料分類；高重量器具採低位收納及防傾倒固定。</li>
+          </ul>
+        </section>
+
+        <section id="boundary">
+          <h2 class="h1"><span class="secno">3.4</span><span>設備現況與採購界線</span></h2>
+          <p>目前明確已有且不採購設備本體者為：</p>
+          <ul class="bul">
+            <li>中型琺瑯／琉璃燒結爐</li>
+            <li>落地式輾片機</li>
+          </ul>
+          <div class="callout"><span class="lead">設計提醒：</span>設備已有不代表安裝介面完成。搬遷、固定、電力、散熱、操作淨空及安全設施仍須納入設計與預算。</div>
+          <p>其餘設備與家具先列為需求盤點，不直接視為全部新購。後續逐項標記「既有可搬遷、既有需修復、已採購待安裝、需新購或取消」，再形成正式預算清單。</p>
+        </section>
+
+        <section id="inputs">
+          <h2 class="h1"><span class="secno">3.5</span><span>配置推演前待取得資料</span></h2>
+          <ol class="steps">
+            <li>全部既有設備的照片、廠牌型號、外形尺寸、重量、電壓、功率及搬遷狀態。</li>
+            <li>金工噴燈系統、鍛造爐、燒結爐、輾片機、砂輪機及銅工接合工作台的操作與維修淨空。</li>
+            <li>現場110V、220V、給排水、排風、補氣、消防、地坪及隔音完工條件。</li>
+            <li>金工及鐵工目前授課人數、是否同時開課、教師示範位置與監看方式。</li>
+            <li>酸洗藥劑、用量、頻率、廢液處理與化學品收納方式。</li>
+            <li>金屬片材、線材及長料的最大尺度、日常存量與搬運入口。</li>
+            <li>半成品及作品的典型尺寸、班級數量與保存週期。</li>
+          </ol>
+        </section>
+
+        <section class="source">
+          <b>文件來源與限制</b>
+          <p>依2026-10-02使用者確認的金工區、鐵工區分項，以及既有歷史需求資料重建。本頁用於需求溝通，不取代建築、消防、機電施工圖或正式採購規格。</p>
+          <p>圖像除使用者提供之現況與參考照片外，A1工作檯參考取自 <a href="https://tips.metalsmithsociety.com/blog/tips-for-setting-up-your-jewelry-studio" target="_blank" rel="noopener">Metalsmith Society｜Tips for Setting Up Your Jewelry Studio</a>。退火、焊接與酸洗流程參考 <a href="https://www.riogrande.com/knowledge-hub/enameling-103-metal-preparation/" target="_blank" rel="noopener">Rio Grande｜Enameling 103</a>、<a href="https://www.riogrande.com/knowledge-hub/articles/get-started-with-soldering-jewelry" target="_blank" rel="noopener">Get Started with Soldering Jewelry</a>。</p>
+        </section>
+        <footer class="foot"><span>慈心高中｜新校舍空間設備需求</span><span>03｜112金工／鐵工教室 · v1.5</span></footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="mobilebar">
+    <button type="button" onclick="document.body.classList.toggle('menu-open')" aria-label="開啟本頁導覽">☰</button>
+    <span><b>03</b> 112金工／鐵工教室</span>
+    <button type="button" onclick="window.print()" aria-label="列印或另存PDF">列印</button>
+  </div>
+
+  <script>
+    const navLinks=[...document.querySelectorAll('.nav a')];
+    const targets=navLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const observer=new IntersectionObserver(entries=>{
+      const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top)[0];
+      if(!visible)return;
+      navLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+visible.target.id));
+    },{rootMargin:'-15% 0px -70% 0px'});
+    targets.forEach(el=>observer.observe(el));
+    navLinks.forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')));
+  </script>
+</body>
+</html>
+
+
