@@ -64,11 +64,17 @@
     .lead{font-weight:700}
     p{margin:0 0 14px}
     .callout{margin:20px 0;padding:15px 20px;border-left:3px solid var(--acc);background:var(--paper-2);border-radius:0 8px 8px 0}
-    .flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:10px;margin:20px 0 24px}
+    .flow{position:relative;display:grid;grid-template-areas:"top top" "left right";grid-template-columns:1fr 1fr;gap:86px 150px;max-width:760px;margin:24px auto 30px;padding:0 30px 8px}
+    .flow-lines{position:absolute;inset:24px 5% 12px;width:90%;height:calc(100% - 36px);z-index:0;overflow:visible}
+    .flow-lines>path{fill:none;stroke:var(--acc);stroke-width:4;opacity:.78}
+    .flow-lines marker path{fill:var(--acc)}
     .flow-card{min-height:86px;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:12px;border:1px solid var(--rule);border-radius:10px;background:#fff}
+    .flow-card{position:relative;z-index:1;box-shadow:0 3px 12px rgba(59,52,40,.06)}
+    .flow-card:nth-of-type(1){grid-area:top;justify-self:center;width:min(280px,70%)}
+    .flow-card:nth-of-type(2){grid-area:left}.flow-card:nth-of-type(3){grid-area:right}
     .flow-card b{font-family:var(--serif);color:var(--acc-deep)}
     .flow-card span{font-size:12.5px;color:var(--muted)}
-    .arrow{color:var(--acc);font-size:22px}
+    .flow-cycle{text-align:center;font-weight:700;color:var(--acc-deep);letter-spacing:.06em}
     .tbl-wrap{margin:10px 0 30px;overflow-x:auto;border:1px solid var(--rule);border-radius:10px;background:#fff}
     .tbl-bar{display:flex;align-items:baseline;gap:10px;padding:10px 16px;border-bottom:1px solid var(--rule);background:var(--paper-2)}
     .tbl-title{font:700 17px var(--serif)}
@@ -118,7 +124,7 @@
     }
     @media(max-width:640px){
       body{font-size:15.5px}.ch-head{grid-template-columns:1fr;gap:7px}.ch-num{font-size:64px}.ch-head h1{font-size:27px}
-      .h1{font-size:21px;margin-top:46px}.h2{font-size:18px}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg);text-align:center}
+      .h1{font-size:21px;margin-top:46px}.h2{font-size:18px}.flow{gap:72px 18px;padding:0}.flow-lines{inset:28px 3% 14px;width:94%;height:calc(100% - 42px)}.flow-card:nth-of-type(1){width:min(250px,78%)}
       .tbl-wrap{border:0;background:none;overflow:visible}.tbl-bar{border:1px solid var(--rule);border-radius:10px;margin-bottom:10px}
       .tbl-wrap table,.tbl-wrap tbody,.tbl-wrap tr,.tbl-wrap td{display:block;width:auto}.tbl-wrap thead{display:none}
       .tbl-wrap tr{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:10px 14px;margin-bottom:10px}
@@ -161,7 +167,7 @@
       </nav>
       <div class="side-foot">
         <button class="print-btn" onclick="window.print()">🖨 列印／另存PDF</button>
-        <div>工作版 v1.5｜2026-10-02</div>
+        <div>工作版 v1.6｜2026-10-03</div>
       </div>
     </aside>
 
@@ -187,7 +193,7 @@
 
         <section class="meta">
           <p><b>文件用途：</b>供校方與建築師團隊確認空間使用模式、設備位置關係及設計介面。</p>
-          <p><b>製作者：</b>邱奕叡　<b>版本日期：</b>2026-10-02　<b>文件階段：</b>需求工作版，非採購或施工定案。</p>
+          <p><b>製作者：</b>邱奕叡　<b>版本日期：</b>2026-10-03　<b>文件階段：</b>需求工作版，非採購或施工定案。</p>
         </section>
 
         <nav class="jumps" aria-label="本頁段落">
@@ -216,15 +222,15 @@
             <table>
               <thead><tr><th class="c-no">序號</th><th class="c-item">品項或工作</th><th class="c-qty">數量或規模</th><th class="c-desc">需求與必要建議</th></tr></thead>
               <tbody>
-                <tr><td class="c-no">A1</td><td class="c-item">個人作業桌、工作椅、銼橋及部分吊鑽</td><td class="c-qty" data-label="數量或規模">席數待確認；歷史基準18席</td><td class="c-desc" data-label="需求與必要建議">工作席整合銼橋、穩固桌緣、集屑承接、腿部空間、可調座椅與精密照明；部分席位配置吊鑽及110V供電。</td></tr>
+                <tr><td class="c-no">A1</td><td class="c-item">個人作業桌、工作椅、銼橋及部分吊鑽</td><td class="c-qty" data-label="數量或規模">席數待確認；歷史基準18席</td><td class="c-desc" data-label="需求與必要建議">銼橋設於操作者身體中線附近，下方配置軟布或皮質集屑承接面；工作席另整合腿部空間、可調座椅、精密照明，部分席位配置吊鑽及110V供電。</td></tr>
                 <tr class="existing"><td class="c-no">A2</td><td class="c-item">中型琺瑯／琉璃燒結爐工作區</td><td class="c-qty" data-label="數量或規模">依既有設備</td><td class="c-desc" data-label="需求與必要建議">設備已有，不採購本體；納入搬遷、操作面、安全距離、散熱、電力及安裝條件。</td></tr>
                 <tr class="existing"><td class="c-no">A3</td><td class="c-item">落地式輾片機區</td><td class="c-qty" data-label="數量或規模">依既有設備</td><td class="c-desc" data-label="需求與必要建議">設備已有，不採購本體；檢核穩固地坪、進出料方向、安全範圍及搬遷固定條件。</td></tr>
-                <tr><td class="c-no">A4</td><td class="c-item">移動式銅工接合工作台</td><td class="c-qty" data-label="數量或規模">1組；現況待盤點</td><td class="c-desc" data-label="需求與必要建議">整合局部排煙、照明、110V插座、耐火工作面、可鎖收納及可固定腳輪。</td></tr>
-                <tr><td class="c-no">A5</td><td class="c-item">捶打鐵砧鍛敲區</td><td class="c-qty" data-label="數量或規模">工作位數待確認</td><td class="c-desc" data-label="需求與必要建議">配置木墩鐵砧及厚木桌邊鐵砧插槽；設厚橡膠減振墊，檢討噪音、安全距離與地坪承載。</td></tr>
-                <tr><td class="c-no">A6</td><td class="c-item">退火／熱處理爐火區</td><td class="c-qty" data-label="數量或規模">簡易爐火2～3口</td><td class="c-desc" data-label="需求與必要建議">配置耐火操作面、噴燈架、局部排煙、工作照明及關閉介面；能源與氣瓶系統另行確認。</td></tr>
+                <tr><td class="c-no">A4</td><td class="c-item">移動式精細融焊／銅工接合工作台</td><td class="c-qty" data-label="數量或規模">1組；現況待盤點</td><td class="c-desc" data-label="需求與必要建議">供銅工小型、精細融焊與接合作業；整合局部排煙、照明、110V插座、耐火工作面、可鎖收納及可固定腳輪，不作為戶外大型鐵工焊接站。</td></tr>
+                <tr><td class="c-no">A5</td><td class="c-item">敲打與成形區</td><td class="c-qty" data-label="數量或規模">工作位數待確認</td><td class="c-desc" data-label="需求與必要建議">分為木墩固定砧座，以及厚實穩定桌體搭配虎鉗與可換砧頭兩類工作席；組合後的操作高度須配合坐姿，並檢討減振、噪音、安全距離與地坪承載。</td></tr>
+                <tr><td class="c-no">A6</td><td class="c-item">退火／淬火熱處理爐火區</td><td class="c-qty" data-label="數量或規模">簡易爐火2～3口</td><td class="c-desc" data-label="需求與必要建議">配置防火磚／耐熱操作面、氧氣與乙炔火炬、局部抽排風、工作照明及緊急關閉介面；供氣管線、鋼瓶位置與消防條件待專業確認。</td></tr>
                 <tr><td class="c-no">A7</td><td class="c-item">酸洗冷卻區</td><td class="c-qty" data-label="數量或規模">1區</td><td class="c-desc" data-label="需求與必要建議">依序配置冷卻／淬火容器、酸洗槽及清水沖洗水槽，整合耐蝕操作面與化學材料、廢液管理。</td></tr>
                 <tr><td class="c-no">A8</td><td class="c-item">鍛頭／砧座收納櫃</td><td class="c-qty" data-label="數量或規模">數量、承重待確認</td><td class="c-desc" data-label="需求與必要建議">依重量、尺寸及使用頻率分類，採低位重物收納及防傾倒構造。</td></tr>
-                <tr><td class="c-no">A9</td><td class="c-item">各類鎚具收納區</td><td class="c-qty" data-label="數量或規模">依牆面規劃</td><td class="c-desc" data-label="需求與必要建議">設固定且可辨識的安放位置，便於清點、取用及歸位；掛架承重與防脫落構造待確認。</td></tr>
+                <tr><td class="c-no">A9</td><td class="c-item">A5就近工具陳設與收納區</td><td class="c-qty" data-label="數量或規模">依工具種類、尺寸與重量規劃</td><td class="c-desc" data-label="需求與必要建議">作為A5敲打與成形區的就近工具陳設；金工鎚、橡膠鎚、木槌、銼刀及線鋸設置可視、易取、易歸位的位置，砧座與重型工具採低位穩固收納。</td></tr>
                 <tr><td class="c-no">A10</td><td class="c-item">金屬材料收納設施</td><td class="c-qty" data-label="數量或規模">依材料規格與存量配置</td><td class="c-desc" data-label="需求與必要建議">分別收納銅片、銅線、鐵材、鋼材及長條材料；片材、線材與長料採不同形式。</td></tr>
                 <tr><td class="c-no">A11</td><td class="c-item">學生半成品及作品收納</td><td class="c-qty" data-label="數量或規模">容量及單格尺度待確認</td><td class="c-desc" data-label="需求與必要建議">支援跨週製作，依班級、學生或作品類型分格管理。</td></tr>
                 <tr><td class="c-no">A12</td><td class="c-item">安全防護設備櫃</td><td class="c-qty" data-label="數量或規模">容量待確認</td><td class="c-desc" data-label="需求與必要建議">收納護目鏡、焊接面罩、耳罩等防護裝備，兼顧清潔、乾燥與取用管理。</td></tr>
@@ -254,10 +260,10 @@
 
           <div class="evidence">
             <div class="evidence-head"><span class="evidence-code">A1</span><span class="evidence-title">個人作業席與銼橋</span></div>
-            <p class="evidence-note">圖像重點：多人教學工作面、桌緣操作介面，以及銼橋在鋸切、銼削、鑽孔與打磨時的核心支撐作用。</p>
+            <p class="evidence-note">圖像重點：多人教學工作面、銼橋的身體中線位置，以及鋸切、銼削與打磨時承接金屬屑及細小零件的集屑面。</p>
             <div class="gallery">
               <figure><a href="assets/a1-classroom.webp" target="_blank"><img src="assets/a1-classroom.webp" loading="lazy" alt="多人在金工工作桌進行個人精細作業"></a><figcaption>多人教學情境：工作席環繞共用工作面，需兼顧個人操作範圍、工具暫放與教師巡視。</figcaption></figure>
-              <figure><a href="assets/a1-bench-vise.webp" target="_blank"><img src="assets/a1-bench-vise.webp" loading="lazy" alt="金工工作桌前緣虎鉗與成形工具"></a><figcaption>桌緣操作介面：穩固桌體可整合虎鉗或成形工具；銼橋則須設於操作者身體中線附近。</figcaption></figure>
+              <figure><a href="assets/a1-bench-pin-catchment.webp" target="_blank"><img src="assets/a1-bench-pin-catchment.webp" loading="lazy" alt="多席金工作業桌的銼橋與黑色集屑承接面"></a><figcaption>個人金工作業席：銼橋設於操作者身體中線附近，下方配置軟布或皮質集屑承接面，供鋸切、銼削及打磨時承接金屬屑與細小零件。</figcaption></figure>
               <figure><a href="assets/a1-workshop-layout.webp" target="_blank"><img src="assets/a1-workshop-layout.webp" loading="lazy" alt="設有連續懸吊照明與多席工作桌的金工教室"></a><figcaption>工作環境參考：中央工作桌、桌邊操作點與連續懸吊照明共同形成精細作業區。</figcaption></figure>
               <figure class="contain"><a href="assets/a1-bench-pin-reference.webp" target="_blank"><img src="assets/a1-bench-pin-reference.webp" loading="lazy" alt="珠寶金工工作檯與銼橋參考圖"></a><figcaption>銼橋參考：完整金工工作檯可整合可替換木質銼橋、抽屜及集屑承接面。圖源：Metalsmith Society。</figcaption></figure>
             </div>
@@ -274,13 +280,24 @@
           </div>
 
           <div class="evidence">
-            <div class="evidence-head"><span class="evidence-code">A5</span><span class="evidence-title">金工鍛敲與成形</span></div>
-            <p class="evidence-note">不同工件需要木墩、桌邊砧座或虎鉗固定的可替換成形工具；配置須處理操作高度、敲擊半徑、減振及工具就近取用。</p>
-            <div class="gallery">
+            <div class="evidence-head"><span class="evidence-code">A5</span><span class="evidence-title">敲打與成形區</span></div>
+            <p class="evidence-note">敲打與成形區分為木墩固定砧座，以及厚實穩定桌體搭配虎鉗與可換砧頭兩類工作席。桌體、虎鉗及砧頭組合後的操作高度須配合坐姿；教學工具使用與交換頻繁，應依類別、尺寸及重量設置清楚可視、易取、易歸位的陳設收納。</p>
+            <div class="gallery three">
+              <figure><a href="assets/a5-workbench-vise-room.webp" target="_blank"><img src="assets/a5-workbench-vise-room.webp" loading="lazy" alt="厚實低工作桌、虎鉗與木墩砧座組成的金工敲打教室"></a><figcaption>兩類工作席：木墩固定砧座，以及厚實穩定桌體搭配虎鉗與可換砧頭；整體高度依坐姿適配。</figcaption></figure>
+              <figure><a href="assets/a1-bench-vise.webp" target="_blank"><img src="assets/a1-bench-vise.webp" loading="lazy" alt="厚實金工桌邊配置重型虎鉗與可換砧頭"></a><figcaption>桌緣成形介面：穩固桌體整合虎鉗或可換砧頭，屬A5敲打與成形工作席。</figcaption></figure>
               <figure><a href="assets/a5-stump-hammering.webp" target="_blank"><img src="assets/a5-stump-hammering.webp" loading="lazy" alt="操作者在木墩成形砧上鍛敲銅器"></a><figcaption>木墩成形砧：提供獨立敲擊位置，需核對坐姿高度、揮鎚範圍及減振。</figcaption></figure>
-              <figure><a href="assets/a5-pair-hammering.webp" target="_blank"><img src="assets/a5-pair-hammering.webp" loading="lazy" alt="兩名學生分別進行銅器鍛敲"></a><figcaption>多人操作：工作席之間須避免揮鎚範圍交疊，並保留教師巡視通道。</figcaption></figure>
               <figure><a href="assets/a5-vise-stake.webp" target="_blank"><img src="assets/a5-vise-stake.webp" loading="lazy" alt="虎鉗固定的金工成形砧座"></a><figcaption>可替換砧座：以重型虎鉗固定，工作桌須具足夠剛性與桌緣夾持條件。</figcaption></figure>
+              <figure><a href="assets/a5-tool-display.webp" target="_blank"><img src="assets/a5-tool-display.webp" loading="lazy" alt="依類別排列的金工鎚、橡膠鎚、木槌、砧具與銼刀"></a><figcaption>A5／A9就近工具陳設：金工鎚、橡膠鎚、木槌、砧具、銼刀及線鋸須易於辨識、拿取與歸位。</figcaption></figure>
               <figure><a href="assets/a5-copper-results.webp" target="_blank"><img src="assets/a5-copper-results.webp" loading="lazy" alt="不同形態的銅器鍛敲完成品"></a><figcaption>成形結果：碗、杯及曲面器物對應不同曲率的鍛頭、砧座與操作方式。</figcaption></figure>
+            </div>
+          </div>
+
+          <div class="evidence">
+            <div class="evidence-head"><span class="evidence-code">A6</span><span class="evidence-title">退火／淬火熱處理爐火區</span></div>
+            <p class="evidence-note">圖像聚焦操作介面，不呈現人物臉部。爐火區以防火磚或耐熱底面形成工作介面，並整合氧氣／乙炔火炬、局部抽排風、照明及緊急關閉。</p>
+            <div class="gallery">
+              <figure><a href="assets/a6-firebrick-operation.webp" target="_blank"><img src="assets/a6-firebrick-operation.webp" loading="lazy" alt="手部以工具在防火磚與耐熱操作面上處理金屬工件"></a><figcaption>耐熱操作面：以防火磚與耐熱底面形成工件加熱、退火及淬火前處理的操作介面。</figcaption></figure>
+              <figure><a href="assets/a6-oxy-acetylene-interface.webp" target="_blank"><img src="assets/a6-oxy-acetylene-interface.webp" loading="lazy" alt="戴手套的操作者使用氧氣乙炔火炬加熱工件，上方設抽排風"></a><figcaption>火炬與抽排風：氧氣／乙炔火炬上方配置局部抽排風；圖像聚焦手部、火焰與操作面。</figcaption></figure>
             </div>
           </div>
         </section>
@@ -320,11 +337,13 @@
         <section id="flow">
           <h2 class="h1"><span class="secno">3.1</span><span>金工核心三角動線</span></h2>
           <div class="flow" aria-label="金工核心三角動線">
-            <div class="flow-card"><b>A5 鍛敲區</b><span>鐵砧、木墩、減振</span></div><div class="arrow">↔</div>
-            <div class="flow-card"><b>A6 退火／熱處理</b><span>簡易爐火2～3口、抽風</span></div><div class="arrow">↔</div>
-            <div class="flow-card"><b>A7 酸洗冷卻</b><span>水槽、耐蝕面、廢液管理</span></div>
+            <svg class="flow-lines" viewBox="0 0 600 360" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="flow-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="currentColor" stroke="none"></path></marker></defs><path d="M286 66 L112 288" marker-end="url(#flow-arrow)"></path><path d="M146 310 L454 310" marker-end="url(#flow-arrow)"></path><path d="M488 286 L314 66" marker-end="url(#flow-arrow)"></path></svg>
+            <div class="flow-card"><b>A5 敲打與成形</b><span>木墩砧座、虎鉗、可換砧頭、減振</span></div>
+            <div class="flow-card"><b>A6 退火／淬火</b><span>防火磚、氧氣／乙炔火炬、抽排風</span></div>
+            <div class="flow-card"><b>A7 酸洗／冷卻</b><span>水槽、耐蝕面、廢液管理</span></div>
           </div>
-          <p>三區應縮短高溫工件在加熱、鍛敲、再加熱、酸洗及冷卻之間的搬運距離，避免穿越個人精細作業區及主要通道。配置時同步檢查爐具熱源、抽風、水槽、耐熱／耐蝕操作面、敲擊安全範圍及教師視線。</p>
+          <p class="flow-cycle">A5 → A6 → A7 → A5｜連續循環工作關係</p>
+          <p>三區應縮短工件在敲打成形、退火／淬火、酸洗／冷卻及返回敲打之間的搬運距離，避免穿越個人精細作業區及主要通道。配置時同步檢查爐具熱源、抽風、水槽、耐熱／耐蝕操作面、敲擊安全範圍及教師視線。</p>
           <p class="callout"><span class="lead">設計判讀：</span>三角關係是工作流程要求，不代表三區必須形成等邊或固定尺寸；應依設備外形與完工條件進行放樣。</p>
         </section>
 
@@ -341,7 +360,7 @@
           <div class="callout"><span class="lead">室內外銜接：</span>鐵工工具、材料及可移動設備以室內鄰近出入口收納；通道與門檻須適合推車通行。火鉗等操作中高溫工具則在半戶外工作區設置明確安放位置。</div>
           <h3 class="h2"><span class="secno">A</span><span>室內金工區</span></h3>
           <p>個人作業區是日常教學主要工作面，部分席位配置吊鑽進行拋光。燒結爐及輾片機為既有設備，不編列設備本體，但需把搬遷、定位、電力、散熱及操作淨空納入新校舍設計。</p>
-          <p>銅工接合工作台採移動式，以局部排煙、耐火面及可鎖收納形成可管理的小型接合工作站。A5鍛敲、A6爐火退火及A7酸洗冷卻形成短距離三角動線。A8至A13收納形式待實際工具、重量與數量盤點後設定。</p>
+          <p>精細融焊／銅工接合工作台採移動式，以局部排煙、耐火面及可鎖收納形成可管理的小型接合工作站。A5敲打成形、A6退火／淬火及A7酸洗／冷卻形成連續循環的短距離三角動線。A8至A13收納形式待實際工具、重量與數量盤點後設定，其中A9須就近服務A5。</p>
           <h3 class="h2"><span class="secno">B</span><span>半戶外鐵工區</span></h3>
           <p>鍛造爐、鐵砧捶打席、火鉗架及工具桌形成連續鍛造工作帶。高溫工件從爐口移至鐵砧時，不應跨越一般通道或其他學生工作席。3～4口爐與5～6席鐵砧的相對位置，須以實際爐體、工作臺、抽風罩及操作半徑放樣。</p>
           <p>火鉗可採爐區就近掛放、牆面掛架、獨立落地架或集中收納；重點為位置固定且不侵入操作動線。落地式砂輪機集中於可控制火花方向及粉塵的位置，避免朝向出入口、可燃物及相鄰工作席。半戶外區同步檢討防雨、風向、夜間照明及設備防護。</p>
@@ -350,8 +369,8 @@
         <section id="mep">
           <h2 class="h1"><span class="secno">3.3</span><span>機電、環境與安全介面</span></h2>
           <ul class="bul">
-            <li><span class="lead">電力：</span>依燒結爐、金工噴燈附屬設備、吊鑽、銅工接合工作台、鍛造爐強制進氣及砂輪機銘牌，核對110V、220V、迴路容量與緊急斷電方式。</li>
-            <li><span class="lead">排煙與補氣：</span>銅工接合、爐火退火、酸洗、半戶外鍛造爐及砂輪作業分別確認捕集方式；鍛造爐統一抽風罩與強制進氣共同設計。</li>
+            <li><span class="lead">電力：</span>依燒結爐、金工火炬附屬設備、吊鑽、精細融焊／銅工接合工作台、鍛造爐強制進氣及砂輪機銘牌，核對110V、220V、迴路容量與緊急斷電方式。</li>
+            <li><span class="lead">排煙與補氣：</span>精細融焊／銅工接合、退火／淬火爐火、酸洗、半戶外鍛造爐及砂輪作業分別確認捕集方式；鍛造爐統一抽風罩與強制進氣共同設計。</li>
             <li><span class="lead">給排水：</span>A7依序配置清水冷卻／淬火、酸洗及清水沖洗介面；槽體、檯面、管材及排水處理依實際藥劑確認。</li>
             <li><span class="lead">熱與火花：</span>爐火、銅工接合及砂輪區配置耐熱或耐火表面，控制可燃物距離與火花方向。</li>
             <li><span class="lead">噪音與振動：</span>金工及鐵工鍛敲區採減振構造，核對樓板、牆體及相鄰空間的聲音傳遞。</li>
@@ -374,7 +393,7 @@
           <h2 class="h1"><span class="secno">3.5</span><span>配置推演前待取得資料</span></h2>
           <ol class="steps">
             <li>全部既有設備的照片、廠牌型號、外形尺寸、重量、電壓、功率及搬遷狀態。</li>
-            <li>金工噴燈系統、鍛造爐、燒結爐、輾片機、砂輪機及銅工接合工作台的操作與維修淨空。</li>
+            <li>金工氧氣／乙炔火炬系統、鍛造爐、燒結爐、輾片機、砂輪機及精細融焊／銅工接合工作台的操作與維修淨空。</li>
             <li>現場110V、220V、給排水、排風、補氣、消防、地坪及隔音完工條件。</li>
             <li>金工及鐵工目前授課人數、是否同時開課、教師示範位置與監看方式。</li>
             <li>酸洗藥劑、用量、頻率、廢液處理與化學品收納方式。</li>
@@ -385,10 +404,11 @@
 
         <section class="source">
           <b>文件來源與限制</b>
-          <p>依2026-10-02使用者確認的金工區、鐵工區分項，以及既有歷史需求資料重建。本頁用於需求溝通，不取代建築、消防、機電施工圖或正式採購規格。</p>
+          <p>依2026-10-03使用者確認的金工區、鐵工區分項，以及既有歷史需求資料重建。本頁用於需求溝通，不取代建築、消防、機電施工圖或正式採購規格。</p>
           <p>圖像除使用者提供之現況與參考照片外，A1工作檯參考取自 <a href="https://tips.metalsmithsociety.com/blog/tips-for-setting-up-your-jewelry-studio" target="_blank" rel="noopener">Metalsmith Society｜Tips for Setting Up Your Jewelry Studio</a>。退火、焊接與酸洗流程參考 <a href="https://www.riogrande.com/knowledge-hub/enameling-103-metal-preparation/" target="_blank" rel="noopener">Rio Grande｜Enameling 103</a>、<a href="https://www.riogrande.com/knowledge-hub/articles/get-started-with-soldering-jewelry" target="_blank" rel="noopener">Get Started with Soldering Jewelry</a>。</p>
+          <p><b>內部歷史資料與討論紀錄（備查）：</b><a href="https://docs.google.com/document/d/1E9A-qctbsOz59Lg2CD9LbbI4SMP_jjvjt-EYnuIPZkk/edit?tab=t.0" target="_blank" rel="noopener">科技領域金工／鐵工／雕塑／野外藝能112學年度會議紀錄</a>、<a href="https://docs.google.com/spreadsheets/d/1R3SzenFhUPiCBXcvL1iOV2iWeKx9Hn7gaVD_CUR0f6A/edit?gid=797521108#gid=797521108" target="_blank" rel="noopener">112高中工藝課程設備與材料需求</a>、<a href="https://drive.google.com/file/d/1j4ODtElQFdKMRsa0aNcTaPTQdjIzLoD8/view?usp=drive_link" target="_blank" rel="noopener">金工／鐵工歷史參考檔案（Google Drive）</a>。以上為歷史備查來源，不直接視為現階段採購或施工定案。</p>
         </section>
-        <footer class="foot"><span>慈心高中｜新校舍空間設備需求</span><span>03｜112金工／鐵工教室 · v1.5</span></footer>
+        <footer class="foot"><span>慈心高中｜新校舍空間設備需求</span><span>03｜112金工／鐵工教室 · v1.6</span></footer>
       </article>
     </main>
   </div>
@@ -412,5 +432,3 @@
   </script>
 </body>
 </html>
-
-
